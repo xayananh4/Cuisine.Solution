@@ -1,0 +1,14 @@
+@{
+  Layout = "_Layout";
+}
+
+@model CuisineTracker.Models.Cuisine
+
+<h4>Add a new Cuisine</h4>
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Description)
+  @Html.TextBoxFor(model => model.Description)
+  <input type="submit" value="Add new Cuisine" />
+}
+<p>@Html.ActionLink("Show all the Cuisines", "Index")</p>
