@@ -1,7 +1,18 @@
 @{
   Layout = "_Layout";
 }
-
 <h1>Welcome to the Cuisine Tracker!</h1>
-<p>@Html.ActionLink("See all cuisines", "Index", "Cuisines")</p>
+<br>
+
+@model CuisineTracker.Models.Restaurant
+@using (Html.BeginForm())
+{
+
+  @Html.LabelFor(model => model.Cuisine)
+  @Html.DropDownList("CuisineId")
+  <br>
+  <input type="submit" value="Search for a restaurant within this cuisine" class="btn btn-primary" />
+}
+
+@* <p>@Html.ActionLink("See all cuisines", "Index", "Cuisines")</p> *@
 <h3><a href='/cuisines/create'>Add a new cuisine</a></h3>
