@@ -4,11 +4,30 @@
 
 @model CuisineTracker.Models.Restaurant
 
+@using CuisineTracker.Models;
 <h2>Restaurant Details</h2>
 <hr />
 <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)<h3>
-<h3>@Html.DisplayNameFor(model => model.Cuisine): @Html.DisplayFor(model => model.Cuisine.Description)<h3>
+<h3>@Html.DisplayNameFor(model => model.Cuisine): @Html.DisplayFor(model => model.Cuisine.Description)
+</h3>
+
+
+@if (@Model.Reviews.Count == 0)
+{
+  <h3>No reviews have been added yet!</h3>
+} 
+else
+{
+<ul>
+    @foreach (Review review in Model.Reviews)
+    {
+      <li>@Html.DisplayFor(model => review.Description)</li>
+    }
+  </ul>
+}
+
 
 <p>@Html.ActionLink("Edit Restaurant", "Edit", new { id = Model.RestaurantId })</p>
+<p>@Html.ActionLink("Add Review", "Create", "Reviews",  new { id = Model.RestaurantId })</p>
 <p>@Html.ActionLink("Delete Restaurant", "Delete", new { id = Model.RestaurantId })</p>
 <p>@Html.ActionLink("Back to list", "Index")</p>

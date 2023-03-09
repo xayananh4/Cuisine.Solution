@@ -26,7 +26,7 @@ namespace CuisineTracker.Controllers
     [HttpPost]
     public ActionResult Index(int CuisineId)
     {
-      return RedirectToAction("Details","Cuisines", new { id = CuisineId });
+      return RedirectToAction("Details","Cuisines", new { id = CuisineId});
     }
 
 

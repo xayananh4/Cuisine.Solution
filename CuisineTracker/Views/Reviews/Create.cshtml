@@ -1,0 +1,17 @@
+@{
+  Layout = "_Layout";
+}
+
+@model CuisineTracker.Models.Review
+
+<h4>Add a new Review</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Description)
+  @Html.TextBoxFor(model => model.Description)
+  <br>
+  <br>
+  <input type="submit" value="Add this new restaurant" class="btn btn-primary" />
+}
+<p>@Html.ActionLink("Show all restaurants", "Index")</p>

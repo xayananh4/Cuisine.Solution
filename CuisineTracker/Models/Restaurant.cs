@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace CuisineTracker.Models
 {
   public class Restaurant
@@ -7,6 +9,8 @@ namespace CuisineTracker.Models
 
     public int CuisineId { get; set; }
     public Cuisine Cuisine { get; set; }
+
+    public List<Review> Reviews { get; set; }
 
   }
 }
