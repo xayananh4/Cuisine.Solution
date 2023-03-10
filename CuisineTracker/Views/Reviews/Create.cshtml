@@ -10,6 +10,7 @@
 {
   @Html.LabelFor(model => model.Description)
   @Html.TextBoxFor(model => model.Description)
+  <input type="hidden" name="RestaurantId" value="@ViewBag.RestaurantId"/>
   <br>
   <br>
   <input type="submit" value="Add this new restaurant" class="btn btn-primary" />

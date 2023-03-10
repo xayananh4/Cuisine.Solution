@@ -17,9 +17,18 @@ namespace CuisineTracker.Controllers
       _db = db;
     }
 
-    public ActionResult Create(Review review, int id)
+
+    public ActionResult Create(int id)
     {
-      Review thisReview = _db.Reviews.FirstOrDefault(review => review.RestaurantId == id);
+      ViewBag.RestaurantId = id;
+      return View();
+    }
+
+
+    [HttpPost]
+    public ActionResult Create(Review review)
+    {
+      // Review thisReview = _db.Reviews.FirstOrDefault(review => review.RestaurantId == id);
       if (review.RestaurantId == 0)
       {
         return RedirectToAction("Create");
@@ -27,7 +36,7 @@ namespace CuisineTracker.Controllers
       _db.Reviews.Add(review);
       _db.SaveChanges();
 
-      return RedirectToAction("Details", "Restaurants", new { id = review.RestaurantId });
+      return RedirectToAction("Details", "Restaurants", new { id = review.RestaurantId } );
     }
 
   }

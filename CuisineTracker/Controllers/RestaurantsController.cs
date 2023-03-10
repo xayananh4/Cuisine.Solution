@@ -46,6 +46,7 @@ namespace CuisineTracker.Controllers
     {
       Restaurant thisRestaurant = _db.Restaurants
                           .Include(restaurant => restaurant.Cuisine)
+                          .Include(restaurant => restaurant.Reviews)
                           .FirstOrDefault(restaurant => restaurant.RestaurantId == id);
       return View(thisRestaurant);
     }
